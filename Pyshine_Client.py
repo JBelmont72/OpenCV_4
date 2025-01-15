@@ -4,7 +4,7 @@ Socket programming to send and receive webcam video
 Go to the terminal window and run this command:
 
 ipconfig getifaddr en0
-
+my public IP address  75.68.100.114
 That will show your LAN IP address. Note that en0 is commonly used for ethernet interface, and en1 is for the Airport interface. Make sure that your IP address is not starting from 127.x.x.x because that is your local host, and if you only want to check server client for the same pc then it is fine. Otherwise, consider using the command above and write the correct ip address for video transfer over different machines.
 '''
 # lets make the client code
@@ -12,7 +12,10 @@ import socket,cv2, pickle,struct
 
 # create socket
 client_socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-host_ip = '192.168.1.12' # paste your server ip address here
+# host_name  = socket.gethostname()
+# host_ip = socket.gethostbyname(host_name)
+# host_ip = '192.168.1.12' # paste your server ip address here
+host_ip = '75.68.100.114'
 port = 9999
 client_socket.connect((host_ip,port)) # a tuple
 data = b""
